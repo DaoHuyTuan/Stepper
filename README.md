@@ -15,7 +15,7 @@
 > version 1 in master branch
 
 - Change branch to master `git checkout master`
-- [Clone and Install ](#Clone-&&-Install)
+- [Clone and Install ](#Clone-and-Install)
 
 > i think this version can reuse easily
 
@@ -24,7 +24,7 @@
 > version 2 in feature/v2 branch
 
 - Change branch to feature/v2 `git checkout feature/v2`
-- [Clone and Install ](#Clone-&&-Install)
+- [Clone and Install ](#Clone-and-Install)
 
 > Why have this verion ??
 
