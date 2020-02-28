@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import "./styles.scss"
+import Stepper from './components/Stepper';
+import { stepList }  from "./stepList";
+import Step from './components/StepItem';
+const App = React.memo(props => {
+  const [listStep, setListStep] = useState(stepList);
+  const handleStepChange = id => {
+     const cloneListStep = JSON.parse(JSON.stringify(stepList));
+     cloneListStep.map(item => {
+  
+        if(item.id === id) {
+          item.clssName = "activated";
+        }
+        else {
+          item.clssName = "";
+        }
+        if(item.id < id) {
+          item.clssName = "visited";
+        }
 
-function App() {
+        return item
+     })
+     setListStep(cloneListStep)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Stepper>
+         {listStep.map(item => {
+           return <Step title={item.label} order={item.order} clssName={item.clssName} key={item.id} handleStepChange={() => handleStepChange(item.id)}/>
+         })}
+      </Stepper>
     </div>
   );
-}
+})
 
 export default App;

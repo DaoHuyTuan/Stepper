@@ -1,0 +1,111 @@
+.step-item {
+    display: flex;
+    width: 150px;
+    flex-flow: row;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    font-family: sans-serif;
+    &:hover::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        background-color: #000;
+        opacity: 0.04;
+    }
+    &__order {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        line-height: 16px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: bold;
+        position: relative;
+        transition: all 0.3s ease;
+        border: 2px solid #bbdefb;
+        color: #2196f3;
+        margin-bottom: 0px;
+        margin-right: 20px;
+
+        @media only screen and (min-width: 768px) {
+            margin-right: 0px;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__title {
+        color: black;
+    }
+
+    &:first-child &__before {
+        display: none;
+    }
+
+    &:last-child &__after {
+        display: none;
+    }
+
+    &__before,
+    &__after {
+        height: 2px;
+        top: 11px;
+        position: absolute;
+        background-color: #bbdefb;
+    }
+
+    &__before {
+        left: 0;
+        width: calc(50% - 20px / 2);
+    }
+
+    &__after {
+        left: calc(50% + 20px / 2);
+        width: calc(100% - 20px + 1px);
+    }
+
+    &.activated {
+        .step-item__before {
+            background-color: #2196f3;
+        }
+
+        .step-item__order {
+            background-color: #2196f3;
+            color: white;
+            border: 2px solid #2196f3;
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: -8px;
+                bottom: -8px;
+                left: -8px;
+                right: -8px;
+                border-radius: 50%;
+                background-color: rgba(33, 150, 243, 0.12);
+            }
+        }
+        .step-item__title {
+            font-weight: bold;
+        }
+    }
+    &.visited {
+        .step-item__order {
+            background-color: #2196f3;
+            color: white;
+            border: 2px solid #2196f3;
+        }
+        .step-item__before, .step-item__after {
+            background-color: #2196f3
+        }
+    }
+    @media only screen and (min-width: 768px) {
+        flex-flow: column;
+        align-items: center;
+    }
+}
