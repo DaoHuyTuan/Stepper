@@ -6,7 +6,7 @@
 
 - Clone project `git clone https://github.com/DaoHuyTuan/Stepper.git`
 - Install `npm install`
-- Run in develop ``npm start`
+- Run in develop ``npm start``
 
 ### This project was builded in 2 version
 
