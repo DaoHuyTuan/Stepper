@@ -1,8 +1,13 @@
 import React from "react";
 import "./style.scss";
-function Stepper({ children, handleChangeStep }) {
-    return (
-    <div className="stepper" onClick={handleChangeStep}>{children}</div>
-    )
-}
+const Stepper = React.memo(({ children, handleStepChange, currentActive }) => {
+  const updateChildrenWithProps = children.map((child, i) => {
+    return React.cloneElement(child, {
+      key: i,
+      handleStepChange,
+      currentActive
+    });
+  });
+  return <div className="stepper">{updateChildrenWithProps}</div>;
+});
 export default Stepper;

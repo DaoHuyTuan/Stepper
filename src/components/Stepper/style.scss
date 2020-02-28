@@ -1,7 +1,10 @@
+@import "../../scss/variable.scss";
+
 .stepper {
     display: flex;
     flex-flow: column;
-    @media only screen and (min-width:768px) {
+
+    @media only screen and (min-width: $mobile-size) {
         flex-flow: row;
     }
 }
